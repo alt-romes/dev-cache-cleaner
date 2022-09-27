@@ -1,0 +1,121 @@
+	Tue Sep 27 22:47 2022 Time and Allocation Profiling Report  (Final)
+
+	   dev-cache-cleaner +RTS -p -RTS
+
+	total time  =       15.89 secs   (15893 ticks @ 1000 us, 1 processor)
+	total alloc = 1,413,606,512 bytes  (excludes profiling overheads)
+
+COST CENTRE                   MODULE                           SRC                                                              %time %alloc
+
+fastIsDir                     Main                             app/Main.hs:(50,1)-(58,69)                                        72.9    5.3
+readDirStream                 System.Posix.Directory.PosixPath System/Posix/Directory/PosixPath.hsc:(91,1)-(109,51)              18.9    3.3
+throwErrnoPathIfRetry         System.Posix.PosixPath.FilePath  System/Posix/PosixPath/FilePath.hsc:(79,1)-(88,21)                 4.1    0.0
+combine                       System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:(729,1)-(730,43)    1.6   80.5
+findFilesRecursivelyUpToFound Main                             app/Main.hs:(36,1)-(47,32)                                         0.4    1.3
+getDirectoryContentsInternal  System.Directory.Internal.Posix  System/Directory/Internal/Posix.hsc:(108,1)-(120,44)               0.3    2.0
+listDirectory                 System.Directory.OsPath          System/Directory/OsPath.hs:(1138,1)-(1139,62)                      0.3    1.2
+fileMode                      System.Posix.Files.Common        System/Posix/Files/Common.hsc:(289,1)-(290,79)                     0.1    1.2
+splitDrive                    System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:(480,1)-(484,26)    0.1    2.4
+peekFilePath                  System.Posix.PosixPath.FilePath  System/Posix/PosixPath/FilePath.hsc:58:1-45                        0.1    1.3
+
+
+                                                                                                                                                      individual      inherited
+COST CENTRE                       MODULE                           SRC                                                             no.     entries  %time %alloc   %time %alloc
+
+MAIN                              MAIN                             <built-in>                                                      213           0    0.0    0.0   100.0  100.0
+ CAF                              Main                             <entire-module>                                                 425           0    0.0    0.0     0.0    0.0
+  main                            Main                             app/Main.hs:(28,1)-(32,30)                                      426           1    0.0    0.0     0.0    0.0
+ CAF                              System.Directory.OsPath          <entire-module>                                                 424           0    0.0    0.0     0.0    0.0
+  getHomeDirectory                System.Directory.OsPath          System/Directory/OsPath.hs:(1506,1)-(1508,28)                   428           1    0.0    0.0     0.0    0.0
+  listDirectory                   System.Directory.OsPath          System/Directory/OsPath.hs:(1138,1)-(1139,62)                   460           0    0.0    0.0     0.0    0.0
+   os                             System.Directory.Internal.Common System/Directory/Internal/Common.hs:115:1-29                    461           0    0.0    0.0     0.0    0.0
+    rightOrError                  System.Directory.Internal.Common System/Directory/Internal/Common.hs:(110,1)-(111,26)            466           2    0.0    0.0     0.0    0.0
+    encodeUtf                     System.OsPath.Internal           System/OsPath/Internal.hs:45:1-24                               462           0    0.0    0.0     0.0    0.0
+     encodeUtf                    System.OsString.Internal         System/OsString/Internal.hs:41:1-40                             463           0    0.0    0.0     0.0    0.0
+      encodeUtf                   System.OsString.Posix            System/OsString/Common.hs:110:1-48                              464           0    0.0    0.0     0.0    0.0
+       encodeWith                 System.OsString.Posix            System/OsString/Common.hs:(117,1)-(123,76)                      465           2    0.0    0.0     0.0    0.0
+ CAF                              System.Directory.Internal.Common <entire-module>                                                 422           0    0.0    0.0     0.0    0.0
+  os                              System.Directory.Internal.Common System/Directory/Internal/Common.hs:115:1-29                    436           1    0.0    0.0     0.0    0.0
+   encodeUtf                      System.OsPath.Internal           System/OsPath/Internal.hs:45:1-24                               438           1    0.0    0.0     0.0    0.0
+    encodeUtf                     System.OsString.Internal         System/OsString/Internal.hs:41:1-40                             439           1    0.0    0.0     0.0    0.0
+     encodeUtf                    System.OsString.Posix            System/OsString/Common.hs:110:1-48                              442           1    0.0    0.0     0.0    0.0
+  ioeSetOsPath                    System.Directory.Internal.Common System/Directory/Internal/Common.hs:(122,1)-(127,42)            499           0    0.0    0.0     0.0    0.0
+ CAF                              System.Directory.Internal.Posix  <entire-module>                                                 420           0    0.0    0.0     0.0    0.0
+  getHomeDirectoryInternal        System.Directory.Internal.Posix  System/Directory/Internal/Posix.hsc:(339,1)-(348,65)            430           1    0.0    0.0     0.0    0.0
+   lookupEnvOs                    System.Directory.Internal.Posix  System/Directory/Internal/Posix.hsc:317:1-66                    433           0    0.0    0.0     0.0    0.0
+    getEnv                        System.Posix.Env.PosixString     System/Posix/Env/PosixString.hsc:(53,1)-(57,24)                 434           1    0.0    0.0     0.0    0.0
+   os                             System.Directory.Internal.Common System/Directory/Internal/Common.hs:115:1-29                    437           0    0.0    0.0     0.0    0.0
+    rightOrError                  System.Directory.Internal.Common System/Directory/Internal/Common.hs:(110,1)-(111,26)            445           1    0.0    0.0     0.0    0.0
+    encodeUtf                     System.OsPath.Internal           System/OsPath/Internal.hs:45:1-24                               440           0    0.0    0.0     0.0    0.0
+     encodeUtf                    System.OsString.Internal         System/OsString/Internal.hs:41:1-40                             441           0    0.0    0.0     0.0    0.0
+      encodeUtf                   System.OsString.Posix            System/OsString/Common.hs:110:1-48                              443           0    0.0    0.0     0.0    0.0
+       encodeWith                 System.OsString.Posix            System/OsString/Common.hs:(117,1)-(123,76)                      444           1    0.0    0.0     0.0    0.0
+ CAF                              System.Posix.PosixPath.FilePath  <entire-module>                                                 418           0    0.0    0.0     0.0    0.0
+  peekFilePath                    System.Posix.PosixPath.FilePath  System/Posix/PosixPath/FilePath.hsc:58:1-45                     457           1    0.0    0.0     0.0    0.0
+  withFilePath                    System.Posix.PosixPath.FilePath  System/Posix/PosixPath/FilePath.hsc:55:1-44                     451           1    0.0    0.0     0.0    0.0
+ CAF                              System.Posix.Directory.PosixPath <entire-module>                                                 417           0    0.0    0.0     0.0    0.0
+ CAF                              System.Posix.Files.Common        <entire-module>                                                 411           0    0.0    0.0     0.0    0.0
+  directoryMode                   System.Posix.Files.Common        System/Posix/Files/Common.hsc:202:1-23                          493           1    0.0    0.0     0.0    0.0
+  fileTypeModes                   System.Posix.Files.Common        System/Posix/Files/Common.hsc:187:1-23                          488           1    0.0    0.0     0.0    0.0
+  symbolicLinkMode                System.Posix.Files.Common        System/Posix/Files/Common.hsc:205:1-26                          489           1    0.0    0.0     0.0    0.0
+ CAF                              System.OsPath                    <entire-module>                                                 400           0    0.0    0.0     0.0    0.0
+  </>                             System.OsPath                    System/OsPath/Common.hs:971:1-15                                467           1    0.0    0.0     0.0    0.0
+ CAF                              System.OsPath.Internal           <entire-module>                                                 396           0    0.0    0.0     0.0    0.0
+  decodeWith                      System.OsPath.Internal           System/OsPath/Internal.hs:83:1-26                               500           1    0.0    0.0     0.0    0.0
+ CAF                              System.OsPath.Posix.Internal     <entire-module>                                                 394           0    0.0    0.0     0.0    0.0
+  hasDrive                        System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:563:1-33         473           1    0.0    0.0     0.0    0.0
+  pathSeparator                   System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:188:1-56         480           1    0.0    0.0     0.0    0.0
+  takeDrive                       System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:546:1-28         475           1    0.0    0.0     0.0    0.0
+ CAF                              Data.ByteString.Short.Internal   <entire-module>                                                 373           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.Conc.Signal                  <entire-module>                                                 323           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.Conc.Sync                    <entire-module>                                                 322           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.Encoding                  <entire-module>                                                 305           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.Encoding.Iconv            <entire-module>                                                 303           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.Exception                 <entire-module>                                                 297           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.Handle.FD                 <entire-module>                                                 294           0    0.0    0.0     0.0    0.0
+ main                             Main                             app/Main.hs:(28,1)-(32,30)                                      427           0    0.0    0.0   100.0  100.0
+  findFilesRecursivelyUpToFound   Main                             app/Main.hs:(36,1)-(47,32)                                      446       44126    0.4    1.3   100.0  100.0
+   fastIsDir                      Main                             app/Main.hs:(50,1)-(58,69)                                      481      260736   72.9    5.3    73.4    6.5
+    fileTypeFromMetadata          System.Directory.Internal.Posix  System/Directory/Internal/Posix.hsc:(167,1)-(173,35)            484      260736    0.2    0.0     0.4    1.2
+     isDirectory                  System.Posix.Files.Common        System/Posix/Files/Common.hsc:(413,1)-(414,69)                  490      260736    0.1    0.0     0.1    0.6
+      fileMode                    System.Posix.Files.Common        System/Posix/Files/Common.hsc:(289,1)-(290,79)                  491      260736    0.0    0.6     0.0    0.6
+      intersectFileModes          System.Posix.Files.Common        System/Posix/Files/Common.hsc:184:1-36                          492      260736    0.0    0.0     0.0    0.0
+     isSymbolicLink               System.Posix.Files.Common        System/Posix/Files/Common.hsc:(415,1)-(416,72)                  485      260736    0.1    0.0     0.2    0.6
+      fileMode                    System.Posix.Files.Common        System/Posix/Files/Common.hsc:(289,1)-(290,79)                  486      260736    0.1    0.6     0.1    0.6
+      intersectFileModes          System.Posix.Files.Common        System/Posix/Files/Common.hsc:184:1-36                          487      260736    0.0    0.0     0.0    0.0
+    fileTypeIsDirectory           System.Directory.Internal.Common System/Directory/Internal/Common.hs:(228,1)-(230,41)            494      260736    0.1    0.0     0.1    0.0
+    getOsString                   System.OsString.Internal.Types   System/OsString/Internal/Types.hs:162:31-41                     483      260736    0.0    0.0     0.0    0.0
+    getPosixString                System.OsString.Internal.Types   System/OsString/Internal/Types.hs:87:37-50                      482      260736    0.0    0.0     0.0    0.0
+   listDirectory                  System.Directory.OsPath          System/Directory/OsPath.hs:(1138,1)-(1139,62)                   447       44126    0.3    1.2    24.4    9.4
+    getDirectoryContents          System.Directory.OsPath          System/Directory/OsPath.hs:(1103,1)-(1106,37)                   448       44126    0.1    0.3    24.1    8.2
+     getDirectoryContentsInternal System.Directory.Internal.Posix  System/Directory/Internal/Posix.hsc:(108,1)-(120,44)            449       44126    0.3    2.0    24.0    7.9
+      openDirStream               System.Posix.Directory.PosixPath System/Posix/Directory/PosixPath.hsc:(78,1)-(81,34)             450       44126    0.1    0.1     4.2    1.2
+       withFilePath               System.Posix.PosixPath.FilePath  System/Posix/PosixPath/FilePath.hsc:55:1-44                     452           0    0.1    0.9     4.2    1.1
+        getPosixString            System.OsString.Internal.Types   System/OsString/Internal/Types.hs:87:37-50                      453       44126    0.0    0.0     0.0    0.0
+        throwErrnoPathIfNullRetry System.Posix.PosixPath.FilePath  System/Posix/PosixPath/FilePath.hsc:(75,1)-(76,47)              454       44126    0.0    0.1     4.1    0.2
+         throwErrnoPathIfRetry    System.Posix.PosixPath.FilePath  System/Posix/PosixPath/FilePath.hsc:(79,1)-(88,21)              455       44126    4.1    0.0     4.1    0.1
+          throwErrnoPath          System.Posix.PosixPath.FilePath  System/Posix/PosixPath/FilePath.hsc:(93,1)-(96,67)              495           1    0.0    0.0     0.0    0.0
+           ioeAddLocation         System.Directory.Internal.Common System/Directory/Internal/Common.hs:(103,1)-(107,29)            496           1    0.0    0.0     0.0    0.0
+           ioeSetOsPath           System.Directory.Internal.Common System/Directory/Internal/Common.hs:(122,1)-(127,42)            497           1    0.0    0.0     0.0    0.0
+      closeDirStream              System.Posix.Directory.Common    System/Posix/Directory/Common.hsc:(87,1)-(88,61)                459       44125    0.5    0.1     0.5    0.1
+      readDirStream               System.Posix.Directory.PosixPath System/Posix/Directory/PosixPath.hsc:(91,1)-(109,51)            456       44125   18.9    3.3    19.0    4.6
+       peekFilePath               System.Posix.PosixPath.FilePath  System/Posix/PosixPath/FilePath.hsc:58:1-45                     458           0    0.1    1.3     0.1    1.3
+     ioeSetOsPath                 System.Directory.Internal.Common System/Directory/Internal/Common.hs:(122,1)-(127,42)            498           0    0.0    0.0     0.0    0.0
+      rightOrError                System.Directory.Internal.Common System/Directory/Internal/Common.hs:(110,1)-(111,26)            505           1    0.0    0.0     0.0    0.0
+      decodeWith                  System.OsPath.Internal           System/OsPath/Internal.hs:83:1-26                               502           0    0.0    0.0     0.0    0.0
+       decodeWith                 System.OsString.Internal         System/OsString/Internal.hs:89:1-59                             503           1    0.0    0.0     0.0    0.0
+        decodeWith                System.OsString.Posix            System/OsString/Common.hs:(188,1)-(190,76)                      504           1    0.0    0.0     0.0    0.0
+   </>                            System.OsPath                    System/OsPath/Common.hs:971:1-15                                468           0    0.1    0.0     1.9   82.8
+    combine                       System.OsPath                    System/OsPath/Common.hs:870:1-60                                469      260736    0.0    0.0     1.8   82.8
+     combine                      System.OsPath.Posix              System/OsPath/Common.hs:870:1-69                                470      260736    0.0    0.0     1.8   82.8
+      combine                     System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:(729,1)-(730,43) 471      260736    1.6   80.5     1.8   82.8
+       hasTrailingPathSeparator   System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:(669,1)-(671,40) 478      260736    0.0    0.0     0.0    0.0
+        isPathSeparator           System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:(203,1)-(206,21) 479      260736    0.0    0.0     0.0    0.0
+       isPathSeparator            System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:(203,1)-(206,21) 472      260736    0.0    0.0     0.0    0.0
+       hasDrive                   System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:563:1-33         474           0    0.0    0.0     0.1    2.4
+        takeDrive                 System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:546:1-28         476           0    0.0    0.0     0.1    2.4
+         splitDrive               System.OsPath.Posix.Internal     System/OsPath/Posix/../../FilePath/Internal.hs:(480,1)-(484,26) 477      260736    0.1    2.4     0.1    2.4
+  getHomeDirectory                System.Directory.OsPath          System/Directory/OsPath.hs:(1506,1)-(1508,28)                   429           0    0.0    0.0     0.0    0.0
+   getHomeDirectoryInternal       System.Directory.Internal.Posix  System/Directory/Internal/Posix.hsc:(339,1)-(348,65)            431           0    0.0    0.0     0.0    0.0
+    lookupEnvOs                   System.Directory.Internal.Posix  System/Directory/Internal/Posix.hsc:317:1-66                    432           1    0.0    0.0     0.0    0.0
+     getEnv                       System.Posix.Env.PosixString     System/Posix/Env/PosixString.hsc:(53,1)-(57,24)                 435           0    0.0    0.0     0.0    0.0
